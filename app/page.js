@@ -1,6 +1,5 @@
 'use client'
 
-// components/ImageSlider.js
 import React, { useState, useEffect } from 'react';
 const Base_URL = 'https://placekitten.com'
 
@@ -39,7 +38,7 @@ const ImageSlider = () => {
           type="range"
           name="width"
           min="100"
-          max="400"
+          max="600"
           step="10"
           value={width}
           onChange={handleChange}
