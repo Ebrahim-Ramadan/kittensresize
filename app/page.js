@@ -30,7 +30,7 @@ export default function Home() {
           onChange={(event)=>setWidth(event.target.value)}
         />
         <label
-          htmlFor="customRangeHeight"
+          htmlFor="width"
           className="mb-2 inline-block text-neutral-700 dark:text-neutral-200"
         >
           Height
@@ -41,7 +41,7 @@ export default function Home() {
           min="50"
           max="550"
           step="10"
-          id="customRangeHeight"
+          id="height"
           value={height}
           onChange={(event)=>setHeight(event.target.value)}
         />
