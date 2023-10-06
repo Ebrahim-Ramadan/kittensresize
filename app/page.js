@@ -18,14 +18,18 @@ const ImageSlider = () => {
       setImageUrl(newImageUrl);
       setIsLoading(false);
     };
+    //generating a new image with the changed attrs everytime the width or height changes instead of changing the src only with direct event
   }, [width, height]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    if (name === 'width') {
-      setWidth(value);
-    } else if (name === 'height') {
-      setHeight(value);
+    switch(name) {
+      case 'width':
+        setWidth(value);
+        break;
+      case 'height':
+        setHeight(value);
+        break;
     }
   };
 
