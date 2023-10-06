@@ -1,9 +1,24 @@
 'use client'
-import React, { useState } from 'react';
-import Image from 'next/image';
+
+// components/ImageSlider.js
+import React, { useState, useEffect } from 'react';
+
 const ImageSlider = () => {
   const [width, setWidth] = useState(100);
   const [height, setHeight] = useState(200);
+  const [isLoading, setIsLoading] = useState(false);
+  const [imageUrl, setImageUrl] = useState('');
+
+  useEffect(() => {
+    setIsLoading(true);
+    const newImageUrl = `https://placekitten.com/${width}/${height}`;
+    const img = new Image();
+    img.src = newImageUrl;
+    img.onload = () => {
+      setImageUrl(newImageUrl);
+      setIsLoading(false);
+    };
+  }, [width, height]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -13,8 +28,6 @@ const ImageSlider = () => {
       setHeight(value);
     }
   };
-
-  const imageUrl = `https://placekitten.com/${width}/${height}`;
 
   return (
     <div>
@@ -45,10 +58,11 @@ const ImageSlider = () => {
         />
       </label>
       <br />
-      <Image src={imageUrl} alt={`Kitten (${width}x${height})`}
-        width={width}
-        height={height}
-      />
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <img src={imageUrl} alt={`Kitten (${width}x${height})`} />
+      )}
     </div>
   );
 };
