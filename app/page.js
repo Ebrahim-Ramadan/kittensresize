@@ -2,6 +2,7 @@
 
 // components/ImageSlider.js
 import React, { useState, useEffect } from 'react';
+const Base_URL = 'https://placekitten.com'
 
 const ImageSlider = () => {
   const [width, setWidth] = useState(100);
@@ -11,7 +12,7 @@ const ImageSlider = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    const newImageUrl = `https://placekitten.com/${width}/${height}`;
+    const newImageUrl = `${Base_URL}/${width}/${height}`;
     const img = new Image();
     img.src = newImageUrl;
     img.onload = () => {
@@ -30,8 +31,8 @@ const ImageSlider = () => {
   };
 
   return (
-    <div>
-      <h2>Image Slider</h2>
+    <div className='flex md:flex-row flex-col gap-4 md:p-16 p-8'>
+      <div className='flex flex-col'>
       <label>
         Width: {width}
         <input
@@ -44,7 +45,6 @@ const ImageSlider = () => {
           onChange={handleChange}
         />
       </label>
-      <br />
       <label>
         Height: {height}
         <input
@@ -57,9 +57,9 @@ const ImageSlider = () => {
           onChange={handleChange}
         />
       </label>
-      <br />
+</div>
       {isLoading ? (
-        <p>Loading...</p>
+        <span class="loader"></span>
       ) : (
         <img src={imageUrl} alt={`Kitten (${width}x${height})`} />
       )}
