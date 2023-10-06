@@ -27,17 +27,17 @@ export const YourCat = () => {
    <>
     <div className='flex flex-col gap-2 mt-4'>
         <input
-          placeholder='Whats your name?'
+          placeholder='Whats your name babe?'
           className='bg-transparent outline-none border-none'
           onKeyDown={handleKeyPress}
           onChange={(e) => setName(e.target.value)}
         />
-        <button onClick={generateyourCat} className='border border-2 border-gray-400 p-2 text-sm rounded-lg'>Send me a cat</button>
+        <button onClick={generateyourCat} className='font-bold border border-2 border-gray-400 p-2 text-sm rounded-lg hover:bg-gray-600 opacity-80 transition-all duration-300 ease-in-out'>Send me a cat</button>
       </div>
     <div>
         {!isLoadingImage2 ? (
           YourCatImg && (
-            <img src={YourCatImg} alt={`${Name}'s cat`} />
+            <img src={YourCatImg} alt={`${Name}'s cat`} className='rounded-lg'/>
           )
         ) : (
           <span className="loader"></span>
