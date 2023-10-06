@@ -1,7 +1,6 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import { YourCat } from './YourCat';
-
 const Base_URL = 'https://placekitten.com';
 
 const ImageSlider = () => {
@@ -25,6 +24,14 @@ const ImageSlider = () => {
 
 
   return (
+    <>
+    
+    <div className='flex justify-end p-2'>
+          <a href='https://github.com/ebrahim-Ramadan/kittensresize' target='_blank' className='flex flex-row gap-1 font-semibold items-center bg-gray-600 rounded-lg p-2 hover:bg-gray-700 transition-all duration-300 ease-in-out'>
+              <p className='text-sm'>Source Code</p>
+              <img src='/gh.svg' alt='github source code' width={20} height={ 20} />
+          </a>
+    </div>
     <div className='flex md:flex-row flex-col gap-8 md:p-16 p-8'>
       <div className='flex flex-col [&>*]:flex [&>*]:gap-y-1 [&>*]:flex-col gap-4 md:w-[250px]'>
         <div>
@@ -56,11 +63,12 @@ const ImageSlider = () => {
       {isLoadingImage1 ? (
         <span className="loader"></span>
       ) : (
-        <img src={imageUrl} alt={`Kitten (${width}x${height})`} className='object-contain' />
+        <img src={imageUrl} alt={`Kitten (${width}x${height})`} className='object-contain rounded-lg' />
       )}
       
       <YourCat/>
-    </div>
+    </div></>
+
   );
 };
 
