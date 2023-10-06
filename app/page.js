@@ -43,7 +43,7 @@ const ImageSlider = () => {
           name="width"
           min="100"
           max="600"
-          step="10"
+          step="5"
           value={width}
           onChange={handleChange}
         />
@@ -55,7 +55,7 @@ const ImageSlider = () => {
           name="height"
           min="200"
           max="600"
-          step="10"
+          step="5"
           value={height}
           onChange={handleChange}
         />
